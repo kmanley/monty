@@ -18,8 +18,10 @@ def change_door():
     choice = random.randrange(3)
     # figure out which door(s) could be revealed by host
     doors.remove(actual)
+    # choice could == actual, so need to check before removing to avoid exception
     if choice in doors:
         doors.remove(choice)
+    # either one or two doors are left, the host will randomly reveal one of them
     revealed = random.choice(doors)
     # we chose one door and one door was revealed
     # there is only one door left and we must switch to it 
